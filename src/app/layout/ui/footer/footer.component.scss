@@ -1,0 +1,36 @@
+.footer-header {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.footer-text {
+    font-size: 16px;
+}
+.social-media-box {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    border: solid 1px;
+}
+
+.content-width{
+    width: 82.5%;
+}
+
+.border-btm {
+    padding:20px 0 20px 0;
+    border-bottom: 1px solid;
+}
+
+#last-row{
+    margin: 20px 0 20px 0; 
+    font-size: 12px;
+    a {
+        color:black;
+        &:hover{
+            font-weight: bold;
+        }
+    }
+}

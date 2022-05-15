@@ -1,0 +1,41 @@
+@mixin header-item-shared {
+    color: grey;
+    padding: 0 15px 0 15px;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    cursor:pointer;
+}
+
+.header-toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.header-icon, .header-menu {
+    @include header-item-shared;
+    &:hover {
+        color:black;
+    }
+}
+
+#header-title{
+    letter-spacing: 3px;
+    font-size: 24px;
+}
+
+.corner-list {
+    display: flex;
+    align-items: center;
+    &,a,li{
+        height: 100%;
+    }
+    li {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+    }
+}
+

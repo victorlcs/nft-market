@@ -1,0 +1,27 @@
+<mat-toolbar class="Poppins-bold header-toolbar">
+    <span id="header-title">EpicNft</span>
+    <!-- <span style="flex: 1 1 auto;"></span> -->
+    <mat-form-field class="example-form-field" appearance="fill" style="flex: 0.5 1 auto;">
+        <input matInput type="text" style="background-color: transparent;" [(ngModel)]="searchTxt"
+        [placeholder]="placeHolderStr">
+        <button class="header-icon" matPrefix mat-icon-button aria-label="Search icon" (click)="onSearch()">
+            <mat-icon>search</mat-icon>
+        </button>
+    </mat-form-field>
+    <div class="corner-list">
+        <ng-container *ngFor="let item of menuItem">
+            <a [href]="item.url" >
+                <li class="header-menu">
+                    {{item.name}}
+                </li>
+            </a>
+        </ng-container>
+        <button mat-icon-button class="header-icon" aria-label="Account icon" (click)="onProfileClick()">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+        <button mat-icon-button class="header-icon" aria-label="Account balance wallet icon">
+            <mat-icon>account_balance_wallet</mat-icon>
+        </button>
+    </div>
+    
+</mat-toolbar>

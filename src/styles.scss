@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: Poppins-bold;
+    src: url(./assets/fonts/Poppins/Poppins-Bold.ttf) format("truetype");
+} 
+@font-face {
+    font-family: Poppins-regular;
+    src: url(./assets/fonts/Poppins/Poppins-Regular.ttf) format("truetype");
+} 
+// @use '@angular/material' as mat;
+// $custom-typography: mat.define-typography-config($font-family:'"Poppins",sans-serif');
+
+// $custom-theme: mat.define-light-theme((typography: $custom-typography));
+
+// @include mat.core($custom-typography);
+// @include mat.all-component-themes($custom-theme);
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.Poppins-bold {
+    font-family: Poppins-bold;
+}
+
+.Poppins-regular {
+    font-family: Poppins-regular;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    font-family: Poppins-bold;
+}
+
+.max-heigh-width {
+    height: 100%;
+    width: 100%;
+}
+
+.flex-horizontal-center{
+    display: flex;
+    justify-content: center;
+}

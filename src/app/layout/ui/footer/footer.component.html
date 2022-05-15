@@ -1,0 +1,65 @@
+<div class="Poppins-regular flex-horizontal-center">
+    <div class="content-width">
+        <div fxLayout="row" class="border-btm">
+            <div class="max-heigh-width" style="padding-right:65px;">
+                <div class="footer-header">Stay in the loop</div>
+                <div class="footer-text">Join our mailing list to stay in the loop with our newest feature releases, NFT
+                    drops, and tips and tricks for navigating OpenSea.</div>
+                <div class="">
+                    <mat-form-field class="example-form-field" appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="text" style="background-color: transparent;" [(ngModel)]="emailTxt"
+                            [placeholder]="emailStr">
+                    </mat-form-field>
+                    <button class="header-icon" mat-raised-button color="primary" aria-label="Signup button"
+                        (click)="onSignUp()">
+                        Sign up
+                    </button>
+                </div>
+            </div>
+            <div class="max-heigh-width" style="padding-left:65px;">
+                <div class="footer-header">Join the community</div>
+                <div class="footer-text">
+                    <ng-container *ngFor="let item of socialMediaItem">
+                        <a [href]="item.url" class="social-media-box">
+                            <div>{{item.name.substring(0,3)}}</div>
+                        </a>
+                    </ng-container>
+
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" class="border-btm">
+            <div fxFlex="30">
+                <div class="footer-header">EpicNft</div>
+                <div class="footer-text">The world’s first and largest digital marketplace for crypto collectibles and
+                    non-fungible tokens (NFTs). Buy, sell, and discover exclusive digital items.</div>
+            </div>
+            <div fxFlex="70" style="padding-left: 65px;">
+                <div fxLayout="row">
+                    <div fxFlex="">
+                        <h3>Marketplace</h3>
+                    </div>
+                    <div fxFlex="">
+                        <h3>My Account</h3>
+                    </div>
+                    <div fxFlex="">
+                        <h3>Resources</h3>
+                    </div>
+                    <div fxFlex="">
+                        <h3>Company</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" id="last-row" >
+            <p fxFlex="80" style="margin:0;">© 2022 Victorlcs, Malaysia</p>
+            <div fxFlex="20">
+                <div fxLayout="row" fxLayoutGap="20px">
+                <a href="">Privacy Policy</a>
+                <a href="">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
