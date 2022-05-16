@@ -7,20 +7,19 @@ import { HeaderModule } from './layout/ui/header/header.module';
 import { FooterModule } from './layout/ui/footer/footer.module';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HeaderModule,
     FooterModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

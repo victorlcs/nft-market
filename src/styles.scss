@@ -25,6 +25,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-family: Poppins-regular;
 }
 
+*, ::before, ::after  {
+    box-sizing: border-box;
+}
+
 a {
     text-decoration: none;
 }
