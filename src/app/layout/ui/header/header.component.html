@@ -1,12 +1,10 @@
 <mat-toolbar class="Poppins-bold header-toolbar">
     <span id="header-title">EpicNft</span>
     <!-- <span style="flex: 1 1 auto;"></span> -->
-    <mat-form-field class="example-form-field" appearance="fill" style="flex: 0.5 1 auto;">
+    <mat-form-field class="search-form-field-with-icon" appearance="fill" style="flex: 0.5 1 auto;">
+        <mat-icon class="header-icon">search</mat-icon>
         <input matInput type="text" style="background-color: transparent;" [(ngModel)]="searchTxt"
         [placeholder]="placeHolderStr">
-        <button class="header-icon" matPrefix mat-icon-button aria-label="Search icon" (click)="onSearch()">
-            <mat-icon>search</mat-icon>
-        </button>
     </mat-form-field>
     <div class="corner-list">
         <ng-container *ngFor="let item of menuItem">

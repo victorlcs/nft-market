@@ -46,3 +46,8 @@ button {
     display: flex;
     justify-content: center;
 }
+
+// For forms input
+.search-form-field-with-icon .mat-form-field-infix {
+    display: flex;
+}

@@ -6,20 +6,21 @@
     background-color: transparent;
     cursor:pointer;
 }
-
 .header-toolbar {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    padding-top: 20px;
 }
-
-.header-icon, .header-menu {
+.header-icon {
+    margin-right: 8px;
+}
+.header-menu {
     @include header-item-shared;
     &:hover {
         color:black;
     }
 }
-
 #header-title{
     letter-spacing: 3px;
     font-size: 24px;
