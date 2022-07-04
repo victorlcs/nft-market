@@ -104,5 +104,7 @@
       }
     }
   },
-  "defaultProject": "nft-market"
+  "cli": {
+    "analytics": "5fe58d22-ba55-45ef-8771-05402e62f8a0"
+  }
 }
