@@ -1,22 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-$primary-color: #7b1fa2;
-@font-face {
-    font-family: Poppins-bold;
-    src: url(./assets/fonts/Poppins/Poppins-Bold.ttf) format("truetype");
-} 
-@font-face {
-    font-family: Poppins-regular;
-    src: url(./assets/fonts/Poppins/Poppins-Regular.ttf) format("truetype");
-} 
-// @use '@angular/material' as mat;
-// $custom-typography: mat.define-typography-config($font-family:'"Poppins",sans-serif');
+// Bases
+@import './scss/base/typography';
+// Helpers
+@import './scss/helpers/variables';
+@import './scss/helpers/mixins';
+// Angular material build in style overriding
+@import './scss/angular-material-components/forms';
+@import './scss/angular-material-components/button-toggles';
+// Basics
+@import './scss/basics/buttons';
 
-// $custom-theme: mat.define-light-theme((typography: $custom-typography));
-
-// @include mat.core($custom-typography);
-// @include mat.all-component-themes($custom-theme);
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 // Text style
 .Poppins-bold {
     font-family: Poppins-bold;
@@ -35,9 +31,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 a {
     text-decoration: none;
 }
-button {
-    font-family: Poppins-bold;
-}
 .max-heigh-width {
     height: 100%;
     width: 100%;
@@ -45,8 +38,4 @@ button {
 .flex-horizontal-center{
     display: flex;
     justify-content: center;
-}
-// For forms input
-.search-form-field-with-icon .mat-form-field-infix {
-    display: flex;
 }

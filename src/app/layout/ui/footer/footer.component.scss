@@ -1,3 +1,6 @@
+// .email-form-field {
+//     background-color: white;
+// }
 .footer-header {
     font-size: 20px;
     font-weight: 600;
@@ -28,5 +31,13 @@
         &:hover{
             font-weight: bold;
         }
+    }
+}
+.sign-up-form {
+    width: 100%;
+    display: flex;
+    margin-top: 16px;
+    .email-form-field {
+        width: 100%;
     }
 }

@@ -4,7 +4,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('../login/login.module').then((m) => m.LoginModule),
+      import('../profile-main-page/profile-main-page.module').then((m) => m.ProfileMainPage),
   },
 ];
 

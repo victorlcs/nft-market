@@ -1,0 +1,11 @@
+.login-page {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    .login-card {
+        padding: 0 25px 0 25px;
+        width: 25vw;
+        border-radius: 5px;
+    }
+}
+

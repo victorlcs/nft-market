@@ -1,0 +1,15 @@
+app-header {
+    .search-form-field-with-icon .mat-form-field-infix {
+        display: flex;
+    }
+}
+app-footer {
+    .email-form-field .mat-form-field-flex {
+        background-color: white;
+    }
+    input {
+        &.mat-input-element {
+            color: black;
+        }
+    }
+}

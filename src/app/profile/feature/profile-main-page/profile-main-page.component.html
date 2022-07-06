@@ -1,0 +1,13 @@
+<div class="login-page">
+    <div class="login-card shadow-lg bg-body">
+        <mat-button-toggle-group [(ngModel)]="userAction" aria-label="Font Style">
+            <mat-button-toggle [value] = "userActionEnum.LOGIN">Login</mat-button-toggle>
+            <mat-button-toggle [value] = "userActionEnum.SIGNUP">Signup</mat-button-toggle>
+        </mat-button-toggle-group>
+        <ng-container *ngIf="userAction === userActionEnum.LOGIN">
+            <app-profile-auth-page>
+                <app-login></app-login>
+            </app-profile-auth-page>
+        </ng-container>
+    </div>
+</div>

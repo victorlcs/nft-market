@@ -1,0 +1,27 @@
+.login-title {
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+    padding: 20px 0 10px 0;
+}
+
+form {
+    &>* {
+        width: 100%;
+    }
+
+    mat-button-toggle {
+        width: 100%;
+    }
+
+    #forgot-pswd-link {
+        text-align: end;
+        font-weight: 500;
+    }
+
+    .login-btn {
+        display: block;
+        border-radius: 10px;
+        margin: 20px 0px 20px 0;
+    }
+}

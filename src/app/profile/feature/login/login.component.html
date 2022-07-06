@@ -1,7 +1,10 @@
 <div class="login-page">
     <div class="login-card shadow-lg bg-body">
-        <h2 class="login-title">LOGIN</h2>
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">      
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-button-toggle-group formControlName="userAction">
+                <mat-button-toggle value="Login">Login</mat-button-toggle>
+                <mat-button-toggle value="Signup">Signup</mat-button-toggle>
+            </mat-button-toggle-group>      
             <mat-form-field>
                 <mat-label>Username</mat-label>
                 <input matInput type="text" formControlName="userName">
@@ -11,9 +14,8 @@
                 <input matInput type="password" formControlName="passWord">
             </mat-form-field>
             <div id="forgot-pswd-link">Forgot password?</div>
-            <button class="login-btn" 
-            mat-raised-button color="primary"
-            type="submit">Primary</button>
+            <button class="login-btn blue-purple-gradient-style" 
+            type="submit">{{buttonTxt}}</button>
         </form>
     </div>
 </div>
