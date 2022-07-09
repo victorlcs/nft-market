@@ -5,8 +5,8 @@
 @import './scss/helpers/variables';
 @import './scss/helpers/mixins';
 // Angular material build in style overriding
-@import './scss/angular-material-components/forms';
-@import './scss/angular-material-components/button-toggles';
+@import './scss/angular-material-override/forms';
+@import './scss/angular-material-override/button-toggles';
 // Basics
 @import './scss/basics/buttons';
 
