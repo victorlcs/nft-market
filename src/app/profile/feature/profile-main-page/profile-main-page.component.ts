@@ -1,5 +1,6 @@
 import {Component, ContentChild, ElementRef, OnInit, Type, ViewChild, ViewContainerRef } from '@angular/core';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
+import { Subject } from 'rxjs';
 import { UserActionEnum } from '../../data-access/profile-enum';
 import { ProfileUserAction } from '../../data-access/profile.model';
 import { DynamicTemplatingDirective } from '../../utils/dynamic-templating.directive';
@@ -20,6 +21,7 @@ export class ProfileMainPageComponent implements OnInit {
   userActionToggleButton: UserActionEnum = UserActionEnum.LOGIN;
   @ViewChild(DynamicTemplatingDirective, {static: true}) dynaTemplate!: DynamicTemplatingDirective;
   @ContentChild(LoginComponent) dynaContent!: LoginComponent;
+  private submitEvent$ = new Subject<any>();
   constructor() { 
   }
 
@@ -33,9 +35,10 @@ export class ProfileMainPageComponent implements OnInit {
   loadComponent(component: Type<any>) { //Dynamic Component Loader
     const viewContainerRef = this.dynaTemplate.viewContainerRef;
     viewContainerRef.clear();
-    viewContainerRef.createComponent(component);
+    const componentRef = viewContainerRef.createComponent(component);
+    componentRef.instance.submitEvent$ = this.submitEvent$; //Passing data into component
   }
   onProceedBtnClick() {
-    console.log(this.dynaContent);
+    this.submitEvent$.next(true)
   }
 }

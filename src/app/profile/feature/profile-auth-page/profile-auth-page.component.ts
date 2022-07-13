@@ -7,21 +7,14 @@ import { LoginComponent } from '../login/login.component';
   templateUrl: './profile-auth-page.component.html',
   styleUrls: ['./profile-auth-page.component.scss']
 })
-export class ProfileAuthPageComponent implements OnInit, AfterViewInit {
+export class ProfileAuthPageComponent implements OnInit {
   @Input() buttonTxt:string;
   @Output() onButtonClickEmitter = new EventEmitter<boolean>();
-  @ViewChild('childForms', {static:true}) childForms: LoginComponent;
-  @ContentChild('testContent') testContent: any;
   constructor() { }
-  ngAfterViewInit(): void {
-    console.log(this.testContent);
-  }
-
   ngOnInit(): void {
     
   }
   onProceed() {
     this.onButtonClickEmitter.emit(true);
-    console.log(this.testContent);
   }
 }
