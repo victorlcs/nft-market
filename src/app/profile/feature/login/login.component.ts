@@ -1,37 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
+import { UserActionEnum } from '../../data-access/profile-enum';
+import { ProfileBase } from '../base/profile-base';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
-
+export class LoginComponent extends ProfileBase implements OnInit, OnDestroy {
+  private onDestroy$ = new Subject<void>;
   form:FormGroup;
-  private mySub = new Subject<string>();
-  constructor() { }
-
+  constructor() {
+    super();
+   }
   ngOnInit(): void {
+    this.submitEvent$.pipe(takeUntil(this.onDestroy$)).subscribe({next: (result) => {
+      this.onSubmit();
+    }});
     this.form = new FormGroup({
-      userName : new FormControl(null,{validators:Validators.required}),
-      passWord : new FormControl(null,{validators:Validators.required})
+      userAction : new FormControl<UserActionEnum>(UserActionEnum.LOGIN,{validators:Validators.required}),
+      userName : new FormControl<string | null>(null,{validators:Validators.required}),
+      passWord : new FormControl<string | null>(null,{validators:Validators.required})
     });
-
-    this.mySub.subscribe(x => alert(x));
   }
-
   onSubmit(){
-    //this.route.navigate(['calculator']);
-    //this.mySub.next("Hello World!");
+    if (this.form.valid) {
+      console.log('Login form is valid');
+    }
   }
-
-  onEmit() {
-    this.mySub.next("Hello World!");
-  }
-
-  getSubListener(){
-    return this.mySub.asObservable();
+  ngOnDestroy(): void {
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
   }
 }

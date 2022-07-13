@@ -1,0 +1,11 @@
+app-profile-main-page {
+    .mat-button-toggle {
+        font-family: Poppins-bold;
+    }
+    .mat-button-toggle-checked {
+        @include bluePurpleGradient;
+        .mat-button-toggle-label-content {
+            color: white;
+        }
+    }
+}

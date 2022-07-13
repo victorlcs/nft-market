@@ -1,0 +1,17 @@
+<div class="profile-main-page">
+    <div class="profile-main-card login-card shadow-lg bg-body">
+        <mat-button-toggle-group [(ngModel)]="userActionToggleButton" (change)="onButtonToggleChange($event)">
+            <ng-container *ngFor="let item of userActionList">
+                <mat-button-toggle [value] = "item.action">{{item.action}}</mat-button-toggle>
+            </ng-container>
+        </mat-button-toggle-group>
+   
+        <app-profile-auth-page [buttonTxt] = 'userActionToggleButton' (onButtonClickEmitter)="onProceedBtnClick()">
+            <ng-template dynaTemplate #dynaRef>
+            </ng-template>
+            <!--Same as below-->
+            <!-- <div *dynaTemplate>
+            </div> -->
+        </app-profile-auth-page>
+    </div>
+</div>

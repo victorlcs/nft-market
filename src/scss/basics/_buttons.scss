@@ -1,0 +1,31 @@
+@mixin btn-structure {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: 0.01em;
+    margin: 0px 8px 8px;
+    height: 50px;
+    width: 162px;
+    cursor: pointer;
+}
+button {
+    font-family: Poppins-bold;
+}
+.blue-purple-gradient-style {
+    @include bluePurpleGradient; // from helpers
+    @include btn-structure;
+    border: none;
+}
+.purple-button {
+    display: inline-flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    border-radius: 12px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    background-color: #ae52d4;
+    border: 2px solid #ae52d4;
+    color: rgb(255, 255, 255);
+    @include btn-structure;
+}

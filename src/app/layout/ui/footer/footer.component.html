@@ -1,17 +1,17 @@
-<div class="Poppins-regular flex-horizontal-center">
+<div class="Poppins-regular flex-horizontal-center main-color-style">
     <div class="content-width">
         <div fxLayout="row" class="border-btm">
             <div class="max-heigh-width" style="padding-right:65px;">
                 <div class="footer-header">Stay in the loop</div>
                 <div class="footer-text">Join our mailing list to stay in the loop with our newest feature releases, NFT
                     drops, and tips and tricks for navigating OpenSea.</div>
-                <div class="">
-                    <mat-form-field class="example-form-field" appearance="fill">
+                <div class="sign-up-form">
+                    <mat-form-field class="email-form-field" appearance="fill">
                         <mat-label>Email</mat-label>
-                        <input matInput type="text" style="background-color: transparent;" [(ngModel)]="emailTxt"
+                        <input matInput type="text" [(ngModel)]="emailTxt"
                             [placeholder]="emailStr">
                     </mat-form-field>
-                    <button class="header-icon" mat-raised-button color="primary" aria-label="Signup button"
+                    <button class="purple-button" aria-label="Signup button"
                         (click)="onSignUp()">
                         Sign up
                     </button>

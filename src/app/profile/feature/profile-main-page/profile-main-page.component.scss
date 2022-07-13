@@ -1,0 +1,21 @@
+:host {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 20px;
+    .profile-main-card {
+        padding: 0 25px 0 25px;
+        width: 25vw;
+        border-radius: 5px;
+        &> * {
+            width: 100%;
+        }
+    
+        mat-button-toggle {
+            width: 100%;
+        }
+    
+        
+    }
+}
+
