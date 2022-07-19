@@ -21,13 +21,15 @@ export class LoginComponent extends ProfileBase implements OnInit, OnDestroy {
     }});
     this.form = new FormGroup({
       userAction : new FormControl<UserActionEnum>(UserActionEnum.LOGIN,{validators:Validators.required}),
-      userName : new FormControl<string | null>(null,{validators:Validators.required}),
+      userName : new FormControl<string | null>(null,{validators:[Validators.required]}),
       passWord : new FormControl<string | null>(null,{validators:Validators.required})
     });
   }
   onSubmit(){
     if (this.form.valid) {
       console.log('Login form is valid');
+    } else {
+      alert(JSON.stringify(this.form.errors));
     }
   }
   ngOnDestroy(): void {

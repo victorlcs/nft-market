@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { AbstractControlOptions, FormBuilder, Validators } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
+import { IsMatchErrorStateMatcher } from '../../utils/ismatch-state-matcher';
+import { isBothMatched } from '../../utils/profile-custom-validators';
 import { ProfileBase } from '../base/profile-base';
 
 @Component({
@@ -10,14 +12,19 @@ import { ProfileBase } from '../base/profile-base';
 })
 export class SignupComponent extends ProfileBase implements OnInit, OnDestroy {
   private onDestroy$ = new Subject<void>;
-  singupForm = this.fb.group({
-    firstName: [],
-    lastName: [],
-    email: [],
-    userName: [],
-    password: [],
-    confirmPassword: []
-  });
+  isMatchErrorStateMatcher = new IsMatchErrorStateMatcher();
+  formGroupOptions: AbstractControlOptions = {
+    validators: isBothMatched(['email'],['confirmEmail']),
+    updateOn: 'blur',
+  }
+  signupForm = this.fb.group({
+    firstName: ['',[Validators.required]],
+    lastName: ['',[Validators.required]],
+    email: ['',[Validators.required, Validators.email]],
+    confirmEmail: ['',[Validators.required, Validators.email]],
+    password: ['',[Validators.required]],
+    confirmPassword: ['',[Validators.required]]
+  },this.formGroupOptions);
   constructor(private fb: FormBuilder) { 
     super();
   }
@@ -27,8 +34,10 @@ export class SignupComponent extends ProfileBase implements OnInit, OnDestroy {
     }});
   }
   onSubmit(): void {
-    if (this.singupForm.valid) {
+    if (this.signupForm.valid) {
       console.log('signup form is valid');
+    } else {
+      console.log(JSON.stringify(this.signupForm.errors));
     }
   }
   ngOnDestroy(): void {
