@@ -14,8 +14,7 @@ export class SignupComponent extends ProfileBase implements OnInit, OnDestroy {
   private onDestroy$ = new Subject<void>;
   isMatchErrorStateMatcher = new IsMatchErrorStateMatcher();
   formGroupOptions: AbstractControlOptions = {
-    validators: isBothMatched(['email'],['confirmEmail']),
-    updateOn: 'blur',
+    validators: isBothMatched(['email','password'],['confirmEmail','confirmPassword']),
   }
   signupForm = this.fb.group({
     firstName: ['',[Validators.required]],
@@ -37,7 +36,7 @@ export class SignupComponent extends ProfileBase implements OnInit, OnDestroy {
     if (this.signupForm.valid) {
       console.log('signup form is valid');
     } else {
-      console.log(JSON.stringify(this.signupForm.errors));
+      console.log((this.signupForm));
     }
   }
   ngOnDestroy(): void {

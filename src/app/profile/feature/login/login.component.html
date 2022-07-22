@@ -1,11 +1,24 @@
-<form [formGroup]="form">
+<form [formGroup]="loginForm">
     <mat-form-field>
-        <mat-label>Username</mat-label>
-        <input matInput type="text" formControlName="userName">
+        <mat-label>Email</mat-label>
+        <input matInput type="text" formControlName="email">
+        <mat-error>
+            <div *ngIf="loginForm.get('email')?.errors?.['required']">
+                Email is required.
+            </div>
+            <div *ngIf="loginForm.get('email')?.errors?.['email']">
+                Email address is invalid.
+            </div>
+        </mat-error>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Password</mat-label>
         <input [class.is-invalid]="true" matInput type="password" formControlName="passWord">
+        <mat-error>
+            <div *ngIf="loginForm.get('passWord')?.errors?.['required']">
+                Password is required.
+            </div>
+        </mat-error>
     </mat-form-field>
     <div id="forgot-pswd-link">Forgot password?</div>
 </form>

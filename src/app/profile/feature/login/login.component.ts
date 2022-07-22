@@ -11,7 +11,7 @@ import { ProfileBase } from '../base/profile-base';
 })
 export class LoginComponent extends ProfileBase implements OnInit, OnDestroy {
   private onDestroy$ = new Subject<void>;
-  form:FormGroup;
+  loginForm:FormGroup;
   constructor() {
     super();
    }
@@ -19,17 +19,17 @@ export class LoginComponent extends ProfileBase implements OnInit, OnDestroy {
     this.submitEvent$.pipe(takeUntil(this.onDestroy$)).subscribe({next: (result) => {
       this.onSubmit();
     }});
-    this.form = new FormGroup({
+    this.loginForm = new FormGroup({
       userAction : new FormControl<UserActionEnum>(UserActionEnum.LOGIN,{validators:Validators.required}),
-      userName : new FormControl<string | null>(null,{validators:[Validators.required]}),
+      email : new FormControl<string | null>(null,{validators:[Validators.required, Validators.email]}),
       passWord : new FormControl<string | null>(null,{validators:Validators.required})
     });
   }
   onSubmit(){
-    if (this.form.valid) {
+    if (this.loginForm.valid) {
       console.log('Login form is valid');
     } else {
-      alert(JSON.stringify(this.form.errors));
+      alert(JSON.stringify(this.loginForm.errors));
     }
   }
   ngOnDestroy(): void {

@@ -2,16 +2,25 @@
     <mat-form-field>
         <mat-label>First Name</mat-label>
         <input matInput type="text" formControlName="firstName">
+        <mat-error>
+                <div *ngIf="signupForm.get('firstName')?.errors?.['required']">
+                    First name is required.
+                </div>
+        </mat-error>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Last Name</mat-label>
         <input matInput type="text" formControlName="lastName">
+        <mat-error>
+                <div *ngIf="signupForm.get('lastName')?.errors?.['required']">
+                    Last name is required.
+                </div>
+        </mat-error>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Email</mat-label>
-        <input matInput type="text" formControlName="email"  [errorStateMatcher]="isMatchErrorStateMatcher">
+        <input matInput type="text" formControlName="email">
         <mat-error>
-            <div *ngIf="signupForm.get('email')?.invalid && (signupForm.get('email')?.dirty || signupForm.get('email')?.touched)">
                 <div
                     *ngIf="signupForm.get('email')?.errors?.['required']">
                     Email is required.
@@ -20,19 +29,13 @@
                     *ngIf="signupForm.get('email')?.errors?.['email']">
                     Email address is invalid.
                 </div>
-            </div>
-            <div *ngIf="signupForm.invalid">
-                <div *ngIf="signupForm.errors?.['notMatched']">
-                    Email is not matched.
-                </div>
-            </div>
         </mat-error>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Confirm Email</mat-label>
         <input matInput type="text" formControlName="confirmEmail" [errorStateMatcher]="isMatchErrorStateMatcher">
         <mat-error>
-            <div *ngIf="signupForm.get('confirmEmail')?.invalid && (signupForm.get('confirmEmail')?.dirty || signupForm.get('confirmEmail')?.touched)">
+            <div *ngIf="signupForm.get('confirmEmail')?.invalid; else checkEmailMatched">
                 <div
                     *ngIf="signupForm.get('confirmEmail')?.errors?.['required']">
                     Email is required.
@@ -42,19 +45,52 @@
                     Email address is invalid.
                 </div>
             </div>
-            <div *ngIf="signupForm.invalid">
-                <div *ngIf="signupForm.errors?.['notMatched']">
-                    Email is not matched.
+            <ng-template #checkEmailMatched>
+                <div *ngIf="signupForm.invalid">
+                    <div *ngIf="signupForm.errors?.['confirmEmailNotMatch']">
+                        Email is not matched.
+                    </div>
                 </div>
-            </div>
+            </ng-template>
         </mat-error>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Password</mat-label>
         <input matInput type="password" formControlName="password">
+        <mat-error>
+            <div *ngIf="signupForm.get('password')?.invalid">
+                <div
+                    *ngIf="signupForm.get('password')?.errors?.['required']">
+                    Password is required.
+                </div>
+                <!-- <div
+                    *ngIf="signupForm.get('confirmEmail')?.errors?.['email']">
+                    Email address is invalid.
+                </div> -->
+            </div>
+        </mat-error>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Confirm Password</mat-label>
-        <input matInput type="password" formControlName="confirmPassword">
+        <input matInput type="password" formControlName="confirmPassword" [errorStateMatcher]="isMatchErrorStateMatcher">
+        <mat-error>
+            <div *ngIf="signupForm.get('confirmPassword')?.invalid; else checkPassMatched">
+                <div
+                    *ngIf="signupForm.get('confirmPassword')?.errors?.['required']">
+                    Password is required.
+                </div>
+                <!-- <div
+                    *ngIf="signupForm.get('confirmEmail')?.errors?.['email']">
+                    Email address is invalid.
+                </div> -->
+            </div>
+            <ng-template #checkPassMatched>
+                <div *ngIf="signupForm.invalid">
+                    <div *ngIf="signupForm.errors?.['confirmPasswordNotMatch']">
+                        Password is not matched.
+                    </div>
+                </div>
+            </ng-template>
+        </mat-error>
     </mat-form-field>
 </form>
